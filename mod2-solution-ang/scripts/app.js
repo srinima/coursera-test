@@ -9,24 +9,24 @@
   ToBuyShoppingController.$inject = ['ShoppingListCheckOffService'];
 
   function ToBuyShoppingController(ShoppingListCheckOffService){
-    var tobuy = this;
-    tobuy.toBuyList = ShoppingListCheckOffService.getItemsToBuy();
-    tobuy.buyme = function(index){
+    var toBuy = this;
+    toBuy.toBuyList = ShoppingListCheckOffService.getItemsToBuy();
+    toBuy.buyme = function(index){
       ShoppingListCheckOffService.buyme(index);
     }
   }
 
   AlreadyBoughtShoppingController.$inject = ['ShoppingListCheckOffService'];
   function AlreadyBoughtShoppingController(ShoppingListCheckOffService){
-    var bt = this;
-    bt.boughtList = ShoppingListCheckOffService.getItemsBought();
+    var alreadyBought = this;
+    alreadyBought.boughtList = ShoppingListCheckOffService.getItemsBought();
   }
 
   function ShoppingListCheckOffService(){
     var service = this;
     var itemsBought = [];
-    var itemsToBuy = [{quantity: "2", item: "Cholocate"}, {quantity: "5", item: "Cake"}, {quantity: "3", item: "Drink"},
-    {quantity: "2", item: "Cookies"},{quantity: "10", item: "Crisp"}];
+    var itemsToBuy = [{quantity: "2", name: "Cholocate"}, {quantity: "5", name: "Cake"}, {quantity: "3", name: "Drink"},
+    {quantity: "2", name: "Cookies"},{quantity: "10", name: "Crisp"}];
 
     service.buyme = function(index){
       itemsBought.push(itemsToBuy[index]);
